@@ -1,0 +1,347 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Background gradient effect */
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.home-info {
+  flex: 1;
+  text-align: left;
+}
+
+.home-image {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed, #f472b6);
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.3),
+              0 0 80px rgba(124, 58, 237, 0.2);
+  overflow: hidden;
+}
+
+.image-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed, #f472b6);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  background: var(--bg-primary);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(124, 58, 237, 0.15));
+  color: var(--accent);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
+  50% { box-shadow: 0 0 20px 5px rgba(0, 212, 255, 0.2); }
+}
+
+.home-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.highlight {
+  color: var(--accent);
+  position: relative;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff, #7c3aed, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.home-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.home-buttons .btn-primary {
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  color: #0f0f1a;
+  border: none;
+  font-weight: 600;
+}
+
+.home-buttons .btn-primary:hover {
+  background: linear-gradient(135deg, #00b8e6, #0088bb);
+  transform: translateY(-2px);
+}
+
+.btn-resume {
+  background: linear-gradient(135deg, #00d4ff, #7c3aed) !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-resume:hover {
+  background: linear-gradient(135deg, #00b8e6, #6d28d9) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+.btn-leetcode {
+  border-color: #FFA116 !important;
+  color: #FFA116 !important;
+}
+
+.btn-leetcode:hover {
+  background: #FFA116 !important;
+  color: #1a1a2e !important;
+}
+
+.tech-stack {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.tech-title {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.tech-item {
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.tech-item:hover {
+  color: var(--accent);
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.4);
+}
+
+/* Tablet View */
+@media (max-width: 968px) {
+  .home {
+    padding-top: 80px;
+  }
+  
+  .home-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .home-info {
+    text-align: center;
+  }
+  
+  .home-buttons {
+    justify-content: center;
+  }
+  
+  .image-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .home-title {
+    font-size: 2.8rem;
+  }
+  
+  .tech-stack {
+    margin-top: 50px;
+  }
+  
+  .tech-icons {
+    gap: 16px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .home {
+    padding-top: 70px;
+    min-height: auto;
+    padding-bottom: 40px;
+  }
+  
+  .home-title {
+    font-size: 2rem;
+  }
+  
+  .home-subtitle {
+    font-size: 1rem;
+  }
+  
+  .home-description {
+    font-size: 0.95rem;
+  }
+  
+  .status-badge {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .image-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .home-buttons .btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+  
+  .tech-item {
+    font-size: 1.8rem;
+    padding: 10px;
+  }
+  
+  .tech-icons {
+    gap: 12px;
+  }
+  
+  .tech-stack {
+    margin-top: 40px;
+  }
+  
+  .tech-title {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.6rem;
+  }
+  
+  .home-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .image-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .tech-item {
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+}
