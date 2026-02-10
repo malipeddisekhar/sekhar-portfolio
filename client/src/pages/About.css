@@ -338,6 +338,16 @@
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  
+  .connect-grid {
+    gap: 20px;
+  }
+}
+
 @media (max-width: 968px) {
   .about {
     padding-top: 100px;
@@ -348,11 +358,15 @@
   }
   
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
   
   .education-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .connect-card {
+    padding: 20px 30px;
   }
 }
 
@@ -368,6 +382,7 @@
   
   .about-text {
     font-size: 1.1rem;
+    line-height: 1.7;
   }
   
   .about-intro {
@@ -384,8 +399,16 @@
     padding: 20px;
   }
   
+  .about-card h3 {
+    font-size: 1rem;
+  }
+  
   .skill-card {
     padding: 20px;
+  }
+  
+  .skill-category {
+    font-size: 0.95rem;
   }
   
   .education-card {
@@ -394,16 +417,64 @@
   
   .cert-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   
   .cert-card {
-    padding: 16px;
+    padding: 14px;
   }
   
   .cert-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  
+  .cert-info h4 {
+    font-size: 0.9rem;
+  }
+  
+  .connect-grid {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .connect-card {
+    padding: 18px 28px;
+    min-width: 140px;
+  }
+  
+  .connect-icon {
+    font-size: 2rem;
+  }
+  
+  .connect-name {
+    font-size: 0.9rem;
+  }
+  
+  .gdsc-card {
+    padding: 20px;
+  }
+  
+  .gdsc-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .gdsc-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .connect-grid {
+    justify-content: center;
+  }
+  
+  .connect-card {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 120px;
+    max-width: 160px;
+    padding: 16px 20px;
   }
 }
 
@@ -421,11 +492,19 @@
   }
   
   .about-card h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .about-card p {
+    font-size: 0.9rem;
   }
   
   .edu-degree {
     font-size: 1rem;
+  }
+  
+  .edu-institution {
+    font-size: 0.9rem;
   }
   
   .skill-tags {
@@ -434,11 +513,19 @@
   
   .tag {
     font-size: 0.75rem;
-    padding: 3px 10px;
+    padding: 4px 10px;
   }
 
   .status-card {
     padding: 16px;
+  }
+  
+  .status-card h3 {
+    font-size: 0.95rem;
+  }
+  
+  .status-card p {
+    font-size: 0.9rem;
   }
 
   .gdsc-card {
@@ -448,36 +535,92 @@
   .gdsc-header {
     flex-direction: column;
     text-align: center;
+    gap: 10px;
   }
 
   .gdsc-logo {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
   }
 
   .gdsc-header h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  
+  .gdsc-org {
+    font-size: 0.85rem;
+  }
+  
+  .gdsc-description {
+    font-size: 0.85rem;
   }
 
   .gdsc-highlights {
     justify-content: center;
+    gap: 6px;
   }
 
   .gdsc-tag {
     font-size: 0.75rem;
-    padding: 6px 10px;
+    padding: 5px 10px;
   }
 
   .connect-card {
-    padding: 16px 24px;
+    padding: 14px 18px;
+    min-width: 100px;
   }
 
   .connect-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .connect-name {
+    font-size: 0.85rem;
   }
 
   .cert-subtitle {
     font-size: 1rem;
+    padding-left: 8px;
+  }
+  
+  .cert-card {
+    padding: 12px;
+  }
+  
+  .cert-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+  
+  .cert-info h4 {
+    font-size: 0.85rem;
+  }
+  
+  .cert-info p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-card,
+  .skill-card,
+  .education-card,
+  .cert-card {
+    padding: 12px;
+  }
+  
+  .gdsc-card {
+    padding: 12px;
+  }
+  
+  .connect-card {
+    padding: 12px 14px;
+    min-width: 90px;
+  }
+  
+  .connect-icon {
+    font-size: 1.6rem;
   }
 }

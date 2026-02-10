@@ -139,7 +139,7 @@
 
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
 
@@ -267,6 +267,12 @@
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 968px) {
   .experience {
     padding-top: 100px;
@@ -274,11 +280,21 @@
   
   .exp-card {
     padding: 24px;
-    margin-bottom: 40px;
   }
   
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .achievement-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .achievement-year {
+    margin-left: 0;
+    align-self: flex-start;
   }
 }
 
@@ -289,11 +305,15 @@
   
   .exp-card {
     padding: 20px;
-    margin-bottom: 30px;
   }
   
   .exp-header {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .exp-period-wrapper {
     align-items: flex-start;
   }
   
@@ -323,6 +343,45 @@
     padding-left: 20px;
     font-size: 0.85rem;
   }
+  
+  .achievement-card {
+    padding: 20px;
+  }
+  
+  .achievement-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .achievement-year {
+    margin-left: 0;
+  }
+  
+  .exp-project-links {
+    gap: 8px;
+  }
+  
+  .exp-project-link {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .current-badge {
+    align-self: flex-start;
+  }
+  
+  .exp-project-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .exp-project-link {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -342,7 +401,65 @@
     font-size: 1rem;
   }
   
+  .exp-company {
+    font-size: 0.9rem;
+  }
+  
+  .current-badge {
+    padding: 3px 10px;
+    font-size: 0.7rem;
+  }
+  
+  .exp-period {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+  
   .project-card {
     padding: 16px;
+  }
+  
+  .project-name {
+    font-size: 1rem;
+  }
+  
+  .achievement-card {
+    padding: 16px;
+  }
+  
+  .achievement-title {
+    font-size: 1.1rem;
+  }
+  
+  .achievement-event {
+    font-size: 0.85rem;
+  }
+  
+  .achievement-year {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .achievement-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .achievement-icon svg {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .exp-card {
+    padding: 12px;
+  }
+  
+  .achievement-card {
+    padding: 12px;
+  }
+  
+  .project-card {
+    padding: 12px;
   }
 }
