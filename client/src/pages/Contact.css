@@ -248,7 +248,7 @@ a.info-value:hover {
 
 @media (max-width: 768px) {
   .contact {
-    padding-top: 150px;
+    padding-top: 170px;
   }
   
   .contact-subtitle {
@@ -338,7 +338,7 @@ a.info-value:hover {
 
 @media (max-width: 480px) {
   .contact {
-    padding-top: 70px;
+    padding-top: 160px;
   }
   
   .section-title {
@@ -437,6 +437,10 @@ a.info-value:hover {
 }
 
 @media (max-width: 360px) {
+  .contact {
+    padding-top: 150px;
+  }
+  
   .contact-info,
   .contact-form-wrapper {
     padding: 14px;

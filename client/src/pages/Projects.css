@@ -253,7 +253,7 @@
 
 @media (max-width: 768px) {
   .projects {
-    padding-top: 150px;
+    padding-top: 170px;
   }
   
   .projects-grid {
@@ -350,7 +350,7 @@
 
 @media (max-width: 480px) {
   .projects {
-    padding-top: 70px;
+    padding-top: 160px;
   }
   
   .section-title {
@@ -418,8 +418,10 @@
   }
 }
 
-@media (max-width: 360px) {
-  .project-content {
+@media (max-width: 360px) {  .projects {
+    padding-top: 150px;
+  }
+    .project-content {
     padding: 12px;
   }
   

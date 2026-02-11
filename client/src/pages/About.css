@@ -372,7 +372,7 @@
 
 @media (max-width: 768px) {
   .about {
-    padding-top: 150px;
+    padding-top: 170px;
   }
   
   .section-title {
@@ -480,7 +480,7 @@
 
 @media (max-width: 480px) {
   .about {
-    padding-top: 70px;
+    padding-top: 160px;
   }
   
   .section-title {
@@ -604,6 +604,10 @@
 }
 
 @media (max-width: 360px) {
+  .about {
+    padding-top: 150px;
+  }
+  
   .about-card,
   .skill-card,
   .education-card,
