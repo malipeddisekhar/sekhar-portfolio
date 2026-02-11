@@ -104,6 +104,19 @@ body {
   width: 100%;
 }
 
+/* Mobile Container Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
 /* Main Content */
 main {
   overflow-x: hidden;
@@ -116,6 +129,19 @@ main {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+}
+
+/* Mobile Section Adjustments */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 50px 0;
+  }
 }
 
 .section-title {

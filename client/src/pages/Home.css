@@ -285,18 +285,129 @@
 /* Mobile View */
 @media (max-width: 768px) {
   .home {
-    padding-top: 70px;
-    min-height: auto;
+    padding-top: 90px;
+    min-height: 100vh;
     padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .home-content {
+    gap: 40px;
+    max-width: 100%;
+  }
+  
+  .home-info {
+    text-align: center;
+    padding: 0 10px;
+  }
+  
+  .home-title {
+    font-size: 2.4rem;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  
+  .home-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  
+  .home-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 100%;
+    color: var(--text-secondary);
+  }
+  
+  .status-badge {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+    border-radius: 25px;
+    font-weight: 500;
+  }
+  
+  .image-wrapper {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto 20px;
+  }
+  
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 0 10px;
+    margin-top: 20px;
+  }
+  
+  .home-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    min-height: 50px;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  
+  .tech-item {
+    font-size: 1.8rem;
+    padding: 12px;
+    min-width: 52px;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+  
+  .tech-icons {
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .tech-stack {
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+  
+  .tech-title {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .home {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   
   .home-content {
     gap: 32px;
   }
   
+  .home-info {
+    padding: 0 5px;
+  }
+  
   .home-title {
-    font-size: 2.2rem;
-    line-height: 1.2;
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
   }
   
   .home-subtitle {
@@ -307,71 +418,77 @@
   .home-description {
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 0 5px;
   }
   
   .status-badge {
     padding: 8px 16px;
     font-size: 0.8rem;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    gap: 8px;
   }
   
   .image-wrapper {
-    width: 220px;
-    height: 220px;
-  }
-  
-  .home-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-  }
-  
-  .home-buttons .btn {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-    min-height: 48px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 16px;
   }
   
   .tech-item {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     padding: 10px;
-    min-width: 50px;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 10px;
   }
   
   .tech-icons {
     gap: 12px;
-  }
-  
-  .tech-stack {
-    margin-top: 40px;
-    padding: 0 12px;
+    padding: 0 10px;
   }
   
   .tech-title {
     font-size: 0.85rem;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+  }
+  
+  .tech-stack {
+    margin-top: 40px;
+    padding: 0 16px;
+  }
+  
+  .home-buttons {
+    padding: 0 5px;
+  }
+  
+  .home-buttons .btn {
+    padding: 13px 18px;
+    font-size: 0.9rem;
+    min-height: 48px;
   }
 }
 
-/* Small Mobile */
-@media (max-width: 480px) {
+/* Extra Small Mobile */
+@media (max-width: 360px) {
   .home {
-    padding-top: 65px;
-    padding-bottom: 32px;
+    padding-top: 75px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
   
   .home-content {
     gap: 28px;
   }
   
+  .home-info {
+    padding: 0;
+  }
+  
   .home-title {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
+    line-height: 1.1;
   }
   
   .home-subtitle {
@@ -381,75 +498,52 @@
   
   .home-description {
     font-size: 0.9rem;
-    padding: 0 8px;
-  }
-  
-  .status-badge {
-    padding: 6px 14px;
-    font-size: 0.75rem;
-    gap: 6px;
+    padding: 0;
+    margin-bottom: 18px;
   }
   
   .image-wrapper {
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
+    margin-bottom: 14px;
   }
   
   .tech-item {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: 8px;
     min-width: 44px;
     min-height: 44px;
+    border-radius: 8px;
   }
   
   .tech-icons {
     gap: 10px;
+    padding: 0 5px;
+  }
+  
+  .tech-stack {
+    margin-top: 35px;
+    padding: 0 12px;
   }
   
   .tech-title {
     font-size: 0.8rem;
-    letter-spacing: 1px;
     margin-bottom: 20px;
   }
   
-  .home-buttons .btn {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Extra Small Mobile */
-@media (max-width: 360px) {
-  .home {
-    padding-top: 60px;
-  }
-  
-  .home-title {
-    font-size: 1.5rem;
-  }
-  
-  .home-subtitle {
-    font-size: 0.85rem;
-  }
-  
-  .image-wrapper {
-    width: 160px;
-    height: 160px;
-  }
-  
-  .tech-item {
-    font-size: 1.3rem;
-    padding: 6px;
-    min-width: 40px;
-    min-height: 40px;
-  }
-  
-  .tech-icons {
-    gap: 8px;
-  }
-  
   .status-badge {
-    padding: 5px 12px;
-    font-size: 0.7rem;
+    padding: 7px 14px;
+    font-size: 0.75rem;
+    margin-bottom: 18px;
+  }
+  
+  .home-buttons {
+    padding: 0;
+  }
+  
+  .home-buttons .btn {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    max-width: 280px;
   }
 }
