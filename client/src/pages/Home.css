@@ -285,7 +285,7 @@
 /* Mobile View */
 @media (max-width: 768px) {
   .home {
-    padding-top: 90px;
+    padding-top: 120px;
     min-height: 100vh;
     padding-bottom: 40px;
     padding-left: 20px;
@@ -390,7 +390,7 @@
 /* Small Mobile */
 @media (max-width: 480px) {
   .home {
-    padding-top: 80px;
+    padding-top: 110px;
     padding-bottom: 40px;
     padding-left: 16px;
     padding-right: 16px;
@@ -473,7 +473,7 @@
 /* Extra Small Mobile */
 @media (max-width: 360px) {
   .home {
-    padding-top: 75px;
+    padding-top: 100px;
     padding-left: 12px;
     padding-right: 12px;
   }

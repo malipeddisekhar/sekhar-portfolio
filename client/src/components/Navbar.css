@@ -89,12 +89,13 @@
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 12px 0;
+    padding: 16px 0;
+    min-height: 70px;
   }
   
   .navbar-links {
     position: fixed;
-    top: 60px;
+    top: 70px;
     left: 0;
     right: 0;
     background-color: var(--bg-primary);
