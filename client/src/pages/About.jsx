@@ -74,8 +74,8 @@ function About() {
           
           {/* Current Status */}
           <div className="status-card">
-            <h3>🎯 What Drives Me</h3>
-            <p>I am building practical skills in Python, front-end and back-end development, and applying my knowledge through hands-on projects and continuous learning. I enjoy solving problems, working on real-world applications, and collaborating with teams to deliver meaningful solutions.</p>
+            <h3>Current Status</h3>
+            <p>6th Semester B.Tech student in CSE (AI & ML) at GMR Institute of Technology, actively seeking internship opportunities to apply my full-stack development skills.</p>
           </div>
 
           <div className="about-details">
