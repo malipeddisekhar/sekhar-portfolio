@@ -65,49 +65,66 @@ function About() {
         <div className="about-intro">
           <h2 className="section-title">About Me</h2>
           <p className="about-text">
-            I am <span className="highlight">Malipeddi Sekhar</span>, a passionate 
-            <span className="highlight"> Full Stack Developer</span> from 
-            <span className="highlight"> Andhra Pradesh, India</span>.
+            I am <span className="highlight">Malipeddi Sekhar</span>, a 
+            <span className="highlight"> B.Tech student</span> at 
+            <span className="highlight"> GMR Institute of Technology</span> with a strong focus on 
+            <span className="highlight"> Java, Full Stack Web Development</span>, and 
+            <span className="highlight"> Machine Learning</span>.
           </p>
           
           {/* Current Status */}
           <div className="status-card">
-            <h3>Current Status</h3>
-            <p>6th Semester B.Tech student in CSE (AI & ML) at GMR Institute of Technology, actively seeking internship opportunities to apply my full-stack development skills.</p>
+            <h3>🎯 What Drives Me</h3>
+            <p>I am building practical skills in Python, front-end and back-end development, and applying my knowledge through hands-on projects and continuous learning. I enjoy solving problems, working on real-world applications, and collaborating with teams to deliver meaningful solutions.</p>
           </div>
 
           <div className="about-details">
             <div className="about-card">
-              <h3>Career Objective</h3>
-              <p>Aspiring Full Stack Developer with hands-on experience in deploying web applications using React and Spring Boot, along with MySQL & MongoDB for database connectivity. Eager to build scalable, user-focused solutions.</p>
+              <h3>💼 Career Interests</h3>
+              <p>I am interested in roles such as:</p>
+              <ul className="list-disc">
+                <li><strong>Software Developer</strong> - Building robust applications</li>
+                <li><strong>Full Stack Developer</strong> - End-to-end web solutions</li>
+                <li><strong>Data Analyst</strong> - Deriving insights from data</li>
+              </ul>
+              <p style={{marginTop: '10px'}}>Where I can contribute my technical skills and grow in a professional environment.</p>
             </div>
             <div className="about-card">
-              <h3>What I Do</h3>
+              <h3>📚 Technical Training</h3>
+              <p>I have completed technical training through:</p>
+              <ul className="list-disc">
+                <li><strong>Cisco Python Essentials</strong> - Core programming skills</li>
+                <li><strong>Next24Tech Technology & Services</strong> - Industry practices</li>
+                <li><strong>Kaggle</strong> - Data science & ML fundamentals</li>
+              </ul>
+              <p style={{marginTop: '10px'}}>These strengthened my programming and analytical abilities.</p>
+            </div>
+            <div className="about-card">
+              <h3>🚀 What I Do</h3>
               <ul className="list-disc">
                 <li>Build full-stack web applications with <strong>MERN Stack</strong> & <strong>Spring Boot</strong></li>
                 <li>Design and implement <strong>RESTful APIs</strong> with secure authentication</li>
                 <li>Create responsive interfaces with <strong>React.js</strong></li>
                 <li>Work with databases: <strong>MySQL</strong> & <strong>MongoDB</strong></li>
+                <li>Apply <strong>Machine Learning</strong> concepts to real problems</li>
               </ul>
             </div>
             <div className="about-card">
-              <h3>Currently Learning</h3>
+              <h3>✨ My Strengths</h3>
               <ul className="list-disc">
-                <li>Advanced <strong>Machine Learning</strong> & AI concepts</li>
-                <li>Cloud deployment with <strong>AWS</strong> & <strong>Docker</strong></li>
-                <li>Advanced <strong>Data Structures & Algorithms</strong></li>
-                <li>System Design patterns</li>
+                <li><strong>Highly motivated</strong> with a passion for technology</li>
+                <li><strong>Quick learner</strong> who adapts to new challenges</li>
+                <li><strong>Problem solver</strong> with analytical thinking</li>
+                <li><strong>Team collaborator</strong> delivering meaningful solutions</li>
+                <li><strong>Committed</strong> to improving skills every day</li>
               </ul>
             </div>
-            <div className="about-card">
-              <h3>Strengths</h3>
-              <ul className="list-disc">
-                <li>Strong analytical and problem-solving abilities</li>
-                <li>Quick learner with research-oriented mindset</li>
-                <li>Effective communicator and team collaborator</li>
-                <li>Passionate about continuous learning</li>
-              </ul>
-            </div>
+          </div>
+
+          {/* Looking For */}
+          <div className="status-card" style={{marginTop: '2rem', background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1))'}}>
+            <h3>🔍 Actively Seeking Opportunities</h3>
+            <p>I am actively seeking <strong>internship or entry-level opportunities</strong> where I can gain industry experience and make a positive impact. Let's connect and build something amazing together!</p>
           </div>
         </div>
 
