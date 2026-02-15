@@ -6,8 +6,6 @@ A modern, responsive portfolio website built with the **MERN Stack** (MongoDB, E
 
 <div align="center">
 
-## 🌐 **[LIVE DEMO](https://698b639906aad73ce7de6297--spontaneous-haupia-52ba4e.netlify.app/)**
-
 ### ✨ **[▶ Click Here to View Live Portfolio](https://698b639906aad73ce7de6297--spontaneous-haupia-52ba4e.netlify.app/)** ✨
 
 </div>
