@@ -29,12 +29,18 @@ function Contact() {
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        // Clear status after 4 seconds
+        setTimeout(() => setStatus(''), 4000);
       } else {
         setStatus('error');
+        // Clear status after 4 seconds
+        setTimeout(() => setStatus(''), 4000);
       }
     } catch (error) {
       console.error('Error:', error);
       setStatus('error');
+      // Clear status after 4 seconds
+      setTimeout(() => setStatus(''), 4000);
     }
   };
 
