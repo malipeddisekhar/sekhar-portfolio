@@ -12,11 +12,16 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ message: 'All fields are required' });
     }
 
-    // Save to database
-    const contact = new Contact({ name, email, message });
-    const savedContact = await contact.save();
-
-    console.log('✅ New contact message saved:', { name, email, timestamp: new Date().toISOString() });
+    // Try to save to database (optional - won't fail if MongoDB is unavailable)
+    let savedContact = null;
+    try {
+      const contact = new Contact({ name, email, message });
+      savedContact = await contact.save();
+      console.log('✅ Message saved to database');
+    } catch (dbError) {
+      console.log('⚠️ Database save failed (not critical):', dbError.message);
+      // Continue anyway - form submission still works
+    }
 
     res.status(201).json({ 
       message: 'Message sent successfully!', 

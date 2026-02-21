@@ -53,7 +53,7 @@ function About() {
 
   const connections = [
     { icon: <FaLinkedin />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/malipeddi-sekhar-08650630b/', color: '#0077b5' },
-    { icon: <FaCode />, name: 'LeetCode', url: 'https://leetcode.com/u/malipeddisekhar/', color: '#FFA116' },
+    { icon: <FaCode />, name: 'LeetCode', url: 'https://leetcode.com/u/MALIPEDD_SEKHAR/', color: '#FFA116' },
     { icon: <FaGithub />, name: 'GitHub', url: 'https://github.com/malipeddisekhar', color: '#333' },
     { icon: <FaEnvelope />, name: 'Email', url: 'mailto:malipeddisekhar63@gmail.com', color: '#ea4335' }
   ];

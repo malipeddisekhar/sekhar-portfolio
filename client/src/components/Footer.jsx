@@ -8,7 +8,7 @@ function Footer() {
   const socialLinks = [
     { icon: <FaGithub />, href: 'https://github.com/malipeddisekhar', label: 'GitHub' },
     { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/malipeddi-sekhar-08650630b/', label: 'LinkedIn' },
-    { icon: <FaCode />, href: 'https://leetcode.com/u/malipeddisekhar/', label: 'LeetCode' },
+    { icon: <FaCode />, href: 'https://leetcode.com/u/MALIPEDD_SEKHAR/', label: 'LeetCode' },
     { icon: <FaEnvelope />, href: 'mailto:malipeddisekhar63@gmail.com', label: 'Email' }
   ];
 

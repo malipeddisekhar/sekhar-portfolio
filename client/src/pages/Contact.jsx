@@ -53,7 +53,7 @@ function Contact() {
   const socialLinks = [
     { icon: <FaGithub />, label: 'GitHub', href: 'https://github.com/malipeddisekhar', color: 'linear-gradient(135deg, #333, #24292e)' },
     { icon: <FaLinkedin />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/malipeddi-sekhar-08650630b/', color: 'linear-gradient(135deg, #0077b5, #005582)' },
-    { icon: <FaCode />, label: 'LeetCode', href: 'https://leetcode.com/u/malipeddisekhar/', color: 'linear-gradient(135deg, #ffa116, #ff6b00)' }
+    { icon: <FaCode />, label: 'LeetCode', href: 'https://leetcode.com/u/MALIPEDD_SEKHAR/', color: 'linear-gradient(135deg, #ffa116, #ff6b00)' }
   ];
 
   return (
