@@ -18,7 +18,7 @@ function Navbar({ darkMode, toggleTheme }) {
   return (
     <nav className="navbar">
       <div className="container navbar-container">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span className="brand-text">Malipeddi Sekhar</span>
         </Link>
 
@@ -28,7 +28,10 @@ function Navbar({ darkMode, toggleTheme }) {
               key={link.path}
               to={link.path}
               className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             >
               {link.label}
             </Link>

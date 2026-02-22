@@ -1,8 +1,65 @@
-import React from 'react';
-import { FaGithub, FaExternalLinkAlt, FaTrophy } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaGithub, FaExternalLinkAlt, FaTrophy, FaCode, FaFire, FaChartLine } from 'react-icons/fa';
+import config from '../config';
 import './Experience.css';
 
 function Experience() {
+  const [leetcodeStats, setLeetcodeStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Fallback stats - update these manually when your actual stats change
+  const fallbackStats = {
+    totalSolved: 50,
+    easySolved: 25,
+    mediumSolved: 20,
+    hardSolved: 5,
+    ranking: 0
+  };
+
+  useEffect(() => {
+    const fetchLeetCodeStats = async () => {
+      // Try multiple APIs sequentially
+      const apis = [
+        `${config.API_URL}/api/leetcode/MALIPEDD_SEKHAR`,
+        'https://alfa-leetcode-api.onrender.com/userProfile/MALIPEDD_SEKHAR',
+        'https://leetcode-api-faisalshohag.vercel.app/MALIPEDD_SEKHAR'
+      ];
+
+      for (const apiUrl of apis) {
+        try {
+          const response = await fetch(apiUrl, { 
+            method: 'GET',
+            headers: { 'Accept': 'application/json' }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            if (data && (data.totalSolved || data.solvedProblem)) {
+              setLeetcodeStats({
+                totalSolved: data.totalSolved || data.solvedProblem || 0,
+                easySolved: data.easySolved || 0,
+                mediumSolved: data.mediumSolved || 0,
+                hardSolved: data.hardSolved || 0,
+                ranking: data.ranking || 0
+              });
+              setLoading(false);
+              return;
+            }
+          }
+        } catch (error) {
+          console.log(`API ${apiUrl} failed, trying next...`);
+        }
+      }
+
+      // If all APIs fail, use fallback stats
+      console.log('All APIs failed, using fallback stats');
+      setLeetcodeStats(fallbackStats);
+      setLoading(false);
+    };
+
+    fetchLeetCodeStats();
+  }, []);
+
   const experiences = [
     {
       role: 'React JS Developer Intern',
@@ -150,6 +207,89 @@ function Experience() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* LeetCode Stats */}
+        <div className="leetcode-section">
+          <h2 className="section-title">
+            <FaCode style={{ marginRight: '10px', color: '#00d4ff' }} />
+            LeetCode Progress
+          </h2>
+          <div className="leetcode-card card">
+            {loading ? (
+              <div className="leetcode-loading">
+                <div className="loading-spinner"></div>
+                <p>Loading LeetCode stats...</p>
+              </div>
+            ) : leetcodeStats ? (
+              <>
+                <div className="leetcode-header">
+                  <div className="leetcode-profile">
+                    <div className="leetcode-logo">
+                      <FaCode />
+                    </div>
+                    <div>
+                      <h3>MALIPEDD_SEKHAR</h3>
+                      <a 
+                        href="https://leetcode.com/u/MALIPEDD_SEKHAR/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="leetcode-link"
+                      >
+                        View Profile <FaExternalLinkAlt />
+                      </a>
+                    </div>
+                  </div>
+                  {leetcodeStats.ranking > 0 && (
+                    <div className="leetcode-rank">
+                      <FaChartLine />
+                      <span>Rank: {leetcodeStats.ranking.toLocaleString()}</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="leetcode-stats-grid">
+                  <div className="leetcode-stat-card total">
+                    <div className="stat-number">{leetcodeStats.totalSolved || 0}</div>
+                    <div className="stat-label">Problems Solved</div>
+                    <div className="stat-icon"><FaFire /></div>
+                  </div>
+                  
+                  <div className="leetcode-stat-card easy">
+                    <div className="stat-number">{leetcodeStats.easySolved || 0}</div>
+                    <div className="stat-label">Easy</div>
+                    <div className="stat-bar">
+                      <div className="stat-fill" style={{ width: `${leetcodeStats.easySolved ? (leetcodeStats.easySolved / 830) * 100 : 0}%` }}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="leetcode-stat-card medium">
+                    <div className="stat-number">{leetcodeStats.mediumSolved || 0}</div>
+                    <div className="stat-label">Medium</div>
+                    <div className="stat-bar">
+                      <div className="stat-fill" style={{ width: `${leetcodeStats.mediumSolved ? (leetcodeStats.mediumSolved / 1742) * 100 : 0}%` }}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="leetcode-stat-card hard">
+                    <div className="stat-number">{leetcodeStats.hardSolved || 0}</div>
+                    <div className="stat-label">Hard</div>
+                    <div className="stat-bar">
+                      <div className="stat-fill" style={{ width: `${leetcodeStats.hardSolved ? (leetcodeStats.hardSolved / 756) * 100 : 0}%` }}></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="leetcode-footer">
+                  <p><span className="quote-icon">💡</span> "Code is like humor. When you have to explain it, it's bad." — Cory House</p>
+                </div>
+              </>
+            ) : (
+              <div className="leetcode-error">
+                <p>Unable to load LeetCode stats. <a href="https://leetcode.com/u/MALIPEDD_SEKHAR/" target="_blank" rel="noopener noreferrer">Visit Profile</a></p>
+              </div>
+            )}
           </div>
         </div>
 

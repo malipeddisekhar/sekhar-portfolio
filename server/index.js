@@ -27,6 +27,30 @@ mongoose.connect(MONGODB_URI)
 app.use('/api/projects', projectRoutes);
 app.use('/api/contact', contactRoutes);
 
+// LeetCode Stats endpoint (server-side fetch to avoid CORS)
+app.get('/api/leetcode/:username', async (req, res) => {
+  try {
+    const { username } = req.params;
+    const response = await fetch(`https://alfa-leetcode-api.onrender.com/userProfile/${username}`);
+    
+    if (response.ok) {
+      const data = await response.json();
+      res.json({
+        totalSolved: data.totalSolved || 0,
+        easySolved: data.easySolved || 0,
+        mediumSolved: data.mediumSolved || 0,
+        hardSolved: data.hardSolved || 0,
+        ranking: data.ranking || 0
+      });
+    } else {
+      res.status(404).json({ message: 'User not found' });
+    }
+  } catch (error) {
+    console.log('LeetCode fetch error:', error.message);
+    res.status(500).json({ message: 'Failed to fetch LeetCode stats' });
+  }
+});
+
 // Health check route
 app.get('/api/health', (req, res) => {
   res.json({ status: 'Server is running', timestamp: new Date() });
