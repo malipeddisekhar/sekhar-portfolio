@@ -16,12 +16,16 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// MongoDB Connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/sekhar-portfolio';
+// MongoDB Connection (optional - server works without it)
+const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log('✅ MongoDB Connected Successfully'))
-  .catch((err) => console.log('❌ MongoDB Connection Error:', err));
+if (MONGODB_URI) {
+  mongoose.connect(MONGODB_URI)
+    .then(() => console.log('✅ MongoDB Connected Successfully'))
+    .catch((err) => console.log('⚠️ MongoDB Connection Error (non-fatal):', err.message));
+} else {
+  console.log('ℹ️ Running without MongoDB - contact form will not save messages');
+}
 
 // Routes
 app.use('/api/projects', projectRoutes);
