@@ -5,6 +5,14 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  CI = "false"
+
+# Auto deploy on every push to main
+[context.production]
+  command = "npm install && npm run build"
+
+[context.branch-deploy]
+  command = "npm install && npm run build"
 
 [[redirects]]
   from = "/*"
