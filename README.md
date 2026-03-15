@@ -6,7 +6,7 @@ A modern, responsive portfolio website built with the **MERN Stack** (MongoDB, E
 
 <div align="center">
 
-### ✨ **[▶ Click Here to View Live Portfolio](https://698b639906aad73ce7de6297--spontaneous-haupia-52ba4e.netlify.app/)** ✨
+### ✨ **[▶ Click Here to View Live Portfolio](https://malipeddisekhar.me/)** ✨
 
 </div>
 
@@ -175,7 +175,7 @@ sekhar-portfolio/
 
 | Service | Purpose | URL |
 |---------|---------|-----|
-| **Netlify** | Frontend Hosting | [Live Site](https://698b639906aad73ce7de6297--spontaneous-haupia-52ba4e.netlify.app/) |
+| **Netlify** | Frontend Hosting | [Live Site](https://malipeddisekhar.me/) |
 | **Render** | Backend API | [API Server](https://sekhar-portfolio-api.onrender.com) |
 | **MongoDB Atlas** | Database | Cloud Database |
 
@@ -216,6 +216,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ### ⭐ If you like this project, give it a star on GitHub! ⭐
 
-**[🌐 View Live Demo](https://698b639906aad73ce7de6297--spontaneous-haupia-52ba4e.netlify.app/)**
+**[🌐 View Live Demo](https://malipeddisekhar.me/)**
 
 </div>
