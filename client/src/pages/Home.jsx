@@ -29,10 +29,13 @@ function Home() {
               Hi, I'm <span className="highlight gradient-text">Malipeddi Sekhar</span>
             </h1>
             <p className="home-subtitle">
-              <span className="highlight">Full Stack Developer</span> | MERN Stack | Spring Boot | React.js
+              <span className="highlight">Java Full Stack Developer</span> | Spring Boot | React.js | MySQL
             </p>
             <p className="home-description">
-              Building scalable web applications with passion for clean code and innovative solutions.
+              Official portfolio of Malipeddi Sekhar (malipeddisekhar), building scalable web applications with passion for clean code and innovative solutions.
+            </p>
+            <p className="home-search-name">
+              Search name: <strong>Malipeddi Sekhar</strong> | <strong>malipeddisekhar</strong>
             </p>
             <div className="home-buttons">
               <a href="/resume.pdf" download="Malipeddi_Sekhar_Resume.pdf" className="btn btn-primary btn-resume">
