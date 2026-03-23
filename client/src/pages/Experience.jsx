@@ -1,11 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaTrophy, FaCode, FaFire, FaChartLine } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaFire, FaChartLine } from 'react-icons/fa';
 import config from '../config';
 import './Experience.css';
 
 function Experience() {
   const [leetcodeStats, setLeetcodeStats] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [activeJourneyIndex, setActiveJourneyIndex] = useState(0);
+  const [flowSpinClass, setFlowSpinClass] = useState('');
+  const [journeyPulseClass, setJourneyPulseClass] = useState('journey-pulse-a');
+
+  const handleJourneyNodeClick = (index) => {
+    setActiveJourneyIndex(index);
+    setFlowSpinClass((prev) => (prev === 'flow-spin-a' ? 'flow-spin-b' : 'flow-spin-a'));
+    setJourneyPulseClass((prev) => (prev === 'journey-pulse-a' ? 'journey-pulse-b' : 'journey-pulse-a'));
+  };
+
+  const journeyFlow = [
+    {
+      phase: 'Foundation Phase',
+      year: '2021 - 2024',
+      title: 'Diploma in Computer Science',
+      summary: 'Built strong programming fundamentals and started my coding journey with Java and Python while understanding how software works from the ground up.',
+      tech: ['Java', 'Python', 'Programming Fundamentals', 'Computer Science Basics']
+    },
+    {
+      phase: 'Problem Solving Phase',
+      year: '2024',
+      title: 'DSA and Developer Workflow',
+      summary: 'Focused on data structures, algorithms, and clean problem-solving patterns while practicing version control and collaborative coding workflows.',
+      tech: ['DSA', 'OOP', 'Git', 'GitHub', 'Debugging']
+    },
+    {
+      phase: 'AI Learning Phase',
+      year: '2024 - 2025',
+      title: 'AI and ML Exploration',
+      summary: 'Expanded into artificial intelligence by learning machine learning pipelines, neural networks, deep learning basics, and data-driven thinking.',
+      tech: ['AI', 'ML', 'AIML', 'Neural Networks', 'Deep Learning', 'Data Analysis']
+    },
+    {
+      phase: 'Full Stack Phase',
+      year: '2025',
+      title: 'Java Full Stack Development',
+      summary: 'Started building complete applications using Spring Boot on backend and React on frontend with MySQL databases and robust REST APIs.',
+      tech: ['Java Full Stack', 'Spring Boot', 'React.js', 'MySQL', 'REST APIs', 'Authentication']
+    },
+    {
+      phase: 'Build and Scale Phase',
+      year: '2025 - Present',
+      title: 'Production Mindset and Impact',
+      summary: 'Now focused on building scalable, practical, and user-centric products with strong architecture, performance, and real-world usability.',
+      tech: ['System Design', 'UI/UX', 'Performance', 'Testing', 'Deployment', 'Team Collaboration']
+    }
+  ];
 
   // Fallback stats - update these manually when your actual stats change
   const fallbackStats = {
@@ -47,12 +94,11 @@ function Experience() {
             }
           }
         } catch (error) {
-          console.log(`API ${apiUrl} failed, trying next...`);
+          // Silent fallback: move to next API without noisy console logs
         }
       }
 
       // If all APIs fail, use fallback stats
-      console.log('All APIs failed, using fallback stats');
       setLeetcodeStats(fallbackStats);
       setLoading(false);
     };
@@ -101,20 +147,6 @@ function Experience() {
     }
   ];
 
-  const achievements = [
-    {
-      title: 'Bytexl Hackathon Winner',
-      event: 'Java Full Stack Development Hackathon',
-      description: [
-        'Won first place in the Bytexl Hackathon competition among 100+ participants',
-        'Demonstrated expertise in Java Full Stack Web Development including Spring Boot, React.js, and MySQL',
-        'Built a complete web application within the hackathon timeline showcasing end-to-end development skills',
-        'Gained hands-on experience in rapid prototyping, problem-solving, and delivering production-ready code under pressure'
-      ],
-      year: '2025'
-    }
-  ];
-
   const projects = [
     {
       name: 'Campus Connect – College Management System',
@@ -142,6 +174,49 @@ function Experience() {
   return (
     <section className="experience section">
       <div className="container">
+        {/* Journey Flow */}
+        <div className="journey-flow-section">
+          <h2 className="section-title">Journey Flow</h2>
+          <p className="journey-flow-intro journey-flow-quote">
+            "I did not wait for opportunities - I engineered them. From diploma roots to full stack and AI systems, every stage of my journey turned learning into real impact."
+          </p>
+          <div className={`journey-flow-track ${flowSpinClass}`}>
+            {journeyFlow.map((step, index) => (
+              <article
+                key={step.title}
+                className={`journey-node ${index % 2 === 0 ? 'left' : 'right'}`}
+                style={{ '--node-index': index }}
+              >
+                <span className="journey-node-dot" aria-hidden="true"></span>
+                <div
+                  className={`journey-node-card card ${activeJourneyIndex === index ? `active ${journeyPulseClass}` : ''}`}
+                  onClick={() => handleJourneyNodeClick(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleJourneyNodeClick(index);
+                    }
+                  }}
+                >
+                  <div className="journey-node-meta">
+                    <span className="journey-phase">{step.phase}</span>
+                    <span className="journey-year">{step.year}</span>
+                  </div>
+                  <h3 className="journey-title">{step.title}</h3>
+                  <p className="journey-summary">{step.summary}</p>
+                  <div className="journey-tech-stack">
+                    {step.tech.map((item) => (
+                      <span key={item} className="journey-tech-tag">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
         {/* Professional Experience */}
         <h2 className="section-title">Professional Experience</h2>
         <div className="exp-cards">
@@ -182,32 +257,6 @@ function Experience() {
               )}
             </div>
           ))}
-        </div>
-
-        {/* Achievements */}
-        <div className="achievements-section">
-          <h2 className="section-title">Achievements</h2>
-          <div className="achievements-grid">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="achievement-card card">
-                <div className="achievement-header">
-                  <div className="achievement-icon">
-                    <FaTrophy />
-                  </div>
-                  <div>
-                    <h3 className="achievement-title">{achievement.title}</h3>
-                    <p className="achievement-event">{achievement.event}</p>
-                  </div>
-                  <span className="achievement-year">{achievement.year}</span>
-                </div>
-                <ul className="achievement-list">
-                  {achievement.description.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* LeetCode Stats */}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaGithub, FaEnvelope, FaLinkedin, FaDownload } from 'react-icons/fa';
 import { SiJavascript, SiReact, SiNodedotjs, SiMongodb, SiSpringboot, SiMysql, SiPython, SiTailwindcss, SiGit } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
@@ -31,12 +30,12 @@ function Home() {
             <p className="home-subtitle">
               <span className="highlight">Java Full Stack Developer</span> | Spring Boot | React.js | MySQL
             </p>
-            <p className="home-description">
-              Official portfolio of Malipeddi Sekhar (malipeddisekhar), building scalable web applications with passion for clean code and innovative solutions.
-            </p>
-            <p className="home-search-name">
-              Search name: <strong>Malipeddi Sekhar</strong> | <strong>malipeddisekhar</strong>
-            </p>
+            <blockquote className="home-quote" aria-label="Technical Quote">
+              <span className="quote-mark">"</span>
+              Great software is built when clean code meets real user needs.
+              <footer className="quote-author">- Malipeddi Sekhar<span className="quote-mark">"</span></footer>
+              
+            </blockquote>
             <div className="home-buttons">
               <a href="/resume.pdf" download="Malipeddi_Sekhar_Resume.pdf" className="btn btn-primary btn-resume">
                 <FaDownload /> Download Resume

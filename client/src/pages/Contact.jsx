@@ -4,6 +4,8 @@ import config from '../config';
 import './Contact.css';
 
 function Contact() {
+  const CONTACT_EMAIL = 'malipeddisekhar63@gmail.com';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +15,14 @@ function Contact() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const openEmailFallback = () => {
+    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   const handleSubmit = async (e) => {
@@ -32,15 +42,15 @@ function Contact() {
         // Clear status after 4 seconds
         setTimeout(() => setStatus(''), 4000);
       } else {
-        setStatus('error');
-        // Clear status after 4 seconds
-        setTimeout(() => setStatus(''), 4000);
+        openEmailFallback();
+        setStatus('fallback');
+        setTimeout(() => setStatus(''), 5000);
       }
     } catch (error) {
       console.error('Error:', error);
-      setStatus('error');
-      // Clear status after 4 seconds
-      setTimeout(() => setStatus(''), 4000);
+      openEmailFallback();
+      setStatus('fallback');
+      setTimeout(() => setStatus(''), 5000);
     }
   };
 
@@ -153,6 +163,7 @@ function Contact() {
                 <FaPaperPlane /> {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
               {status === 'success' && <p className="form-status success">Message sent successfully!</p>}
+              {status === 'fallback' && <p className="form-status success">Opened your email app to send the message directly.</p>}
               {status === 'error' && <p className="form-status error">Failed to send. Please try again.</p>}
             </form>
           </div>

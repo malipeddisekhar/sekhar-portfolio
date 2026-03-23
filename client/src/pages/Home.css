@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 16px;
+  padding-top: 0;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -140,11 +140,47 @@
   margin-bottom: 16px;
 }
 
+.home-quote {
+  margin: 0 0 28px;
+  padding: 0;
+  max-width: 640px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.quote-mark {
+  font-size: 1.5rem;
+  color: var(--accent);
+  line-height: 0;
+  margin-right: 6px;
+  vertical-align: -4px;
+}
+
+.quote-author {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
 .home-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
   margin-bottom: 32px;
   max-width: 600px;
+}
+
+.home-search-name {
+  margin-top: -10px;
+  margin-bottom: 26px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.home-search-name strong {
+  color: var(--text-primary);
 }
 
 .home-buttons {
@@ -247,7 +283,7 @@
 @media (max-width: 968px) {
   .home {
     align-items: flex-start;
-    padding-top: 14px;
+    padding-top: 0;
   }
   
   .home-content {
@@ -273,6 +309,11 @@
   .home-title {
     font-size: 2.8rem;
   }
+
+  .home-quote {
+    margin-left: auto;
+    margin-right: auto;
+  }
   
   .tech-stack {
     margin-top: 50px;
@@ -286,7 +327,7 @@
 /* Mobile View */
 @media (max-width: 768px) {
   .home {
-    padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+    padding-top: 0;
     min-height: 100vh;
     padding-bottom: 40px;
     padding-left: 0;
@@ -319,6 +360,21 @@
     margin-bottom: 18px;
     font-weight: 500;
     color: var(--accent);
+  }
+
+  .home-quote {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    padding: 0;
+    text-align: left;
+  }
+
+  .quote-mark {
+    font-size: 1.35rem;
+  }
+
+  .quote-author {
+    font-size: 0.85rem;
   }
   
   .home-description {
@@ -395,7 +451,7 @@
 /* Small Mobile */
 @media (max-width: 480px) {
   .home {
-    padding-top: calc(env(safe-area-inset-top, 0px) + 10px);
+    padding-top: 0;
     padding-bottom: 40px;
     padding-left: 0;
     padding-right: 0;
@@ -418,6 +474,20 @@
   .home-subtitle {
     font-size: 1rem;
     margin-bottom: 16px;
+  }
+
+  .home-quote {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .quote-mark {
+    font-size: 1.2rem;
+  }
+
+  .quote-author {
+    font-size: 0.8rem;
   }
   
   .home-description {
@@ -478,7 +548,7 @@
 /* Extra Small Mobile */
 @media (max-width: 360px) {
   .home {
-    padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
+    padding-top: 0;
     padding-left: 0;
     padding-right: 0;
   }
@@ -499,6 +569,12 @@
   .home-subtitle {
     font-size: 0.9rem;
     margin-bottom: 14px;
+  }
+
+  .home-quote {
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+    padding: 0;
   }
   
   .home-description {

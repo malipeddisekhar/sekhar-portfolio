@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaCode, FaGithub, FaEnvelope, FaGoogle } from 'react-icons/fa';
+import { FaLinkedin, FaCode, FaGithub, FaEnvelope, FaTrophy } from 'react-icons/fa';
 import './About.css';
 
 function About() {
@@ -64,67 +64,49 @@ function About() {
         {/* About Me */}
         <div className="about-intro">
           <h2 className="section-title">About Me</h2>
-          <p className="about-text">
-            I am <span className="highlight">Malipeddi Sekhar</span>, a 
-            <span className="highlight"> B.Tech student</span> at 
-            <span className="highlight"> GMR Institute of Technology</span> with a strong focus on 
-            <span className="highlight"> Java, Full Stack Web Development</span>, and 
-            <span className="highlight"> Machine Learning</span>.
-          </p>
-          
-          {/* Current Status */}
-          <div className="status-card">
-            <h3>Current Status</h3>
-            <p>6th Semester B.Tech student in CSE (AI & ML) at GMR Institute of Technology, actively seeking internship opportunities to apply my full-stack development skills.</p>
-          </div>
+          <div className="about-spotlight card">
+            <div className="about-spotlight-header">
+              <div className="about-logo-wrap" aria-hidden="true">
+                <FaCode className="about-animated-logo" />
+              </div>
+              <div>
+                <h3 className="about-spotlight-title">Full Stack Developer</h3>
+                <p className="about-spotlight-subtitle">CSE (AI & ML) student building clean, scalable, and user-friendly digital products.</p>
+              </div>
+            </div>
 
-          <div className="about-details">
-            <div className="about-card">
-              <h3>💼 Career Interests</h3>
-              <p>I am interested in roles such as:</p>
-              <ul className="list-disc">
-                <li><strong>Software Developer</strong> - Building robust applications</li>
-                <li><strong>Full Stack Developer</strong> - End-to-end web solutions</li>
-                <li><strong>Data Analyst</strong> - Deriving insights from data</li>
-              </ul>
-              <p style={{marginTop: '10px'}}>Where I can contribute my technical skills and grow in a professional environment.</p>
-            </div>
-            <div className="about-card">
-              <h3>📚 Technical Training</h3>
-              <p>I have completed technical training through:</p>
-              <ul className="list-disc">
-                <li><strong>Cisco Python Essentials</strong> - Core programming skills</li>
-                <li><strong>Next24Tech Technology & Services</strong> - Industry practices</li>
-                <li><strong>Kaggle</strong> - Data science & ML fundamentals</li>
-              </ul>
-              <p style={{marginTop: '10px'}}>These strengthened my programming and analytical abilities.</p>
-            </div>
-            <div className="about-card">
-              <h3>🚀 What I Do</h3>
-              <ul className="list-disc">
-                <li>Build full-stack web applications with <strong>MERN Stack</strong> & <strong>Spring Boot</strong></li>
-                <li>Design and implement <strong>RESTful APIs</strong> with secure authentication</li>
-                <li>Create responsive interfaces with <strong>React.js</strong></li>
-                <li>Work with databases: <strong>MySQL</strong> & <strong>MongoDB</strong></li>
-                <li>Apply <strong>Machine Learning</strong> concepts to real problems</li>
-              </ul>
-            </div>
-            <div className="about-card">
-              <h3>✨ My Strengths</h3>
-              <ul className="list-disc">
-                <li><strong>Highly motivated</strong> with a passion for technology</li>
-                <li><strong>Quick learner</strong> who adapts to new challenges</li>
-                <li><strong>Problem solver</strong> with analytical thinking</li>
-                <li><strong>Team collaborator</strong> delivering meaningful solutions</li>
-                <li><strong>Committed</strong> to improving skills every day</li>
-              </ul>
-            </div>
-          </div>
+            <p className="about-spotlight-text">
+              I am <span className="highlight">Malipeddi Sekhar</span>, a passionate full stack developer who loves building clean, scalable, and user-friendly web applications from scratch.
+            </p>
+            <p className="about-spotlight-text">
+              I work with <span className="highlight">Java</span>, <span className="highlight">Spring Boot</span>, and <span className="highlight">React</span> to create complete end-to-end solutions, from backend logic to modern, interactive UI.
+            </p>
+            <p className="about-spotlight-text">
+              As an <span className="highlight">AI & ML branch</span> student, I also work with machine learning concepts such as data preprocessing, model building, and evaluation to solve practical problems.
+            </p>
+            <p className="about-spotlight-text">
+              I enjoy turning ideas into real-world applications that are both functional and visually engaging. My focus is always on writing clean code, creating smooth user experiences, and building systems that scale.
+            </p>
+            <p className="about-spotlight-text">
+              I have worked on projects like Student Management Systems, Task Managers, and dashboard-based applications, where I handled both frontend and backend development. These experiences helped me understand how real-world applications work end-to-end.
+            </p>
 
-          {/* Looking For */}
-          <div className="status-card" style={{marginTop: '2rem', background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1))'}}>
-            <h3>🔍 Actively Seeking Opportunities</h3>
-            <p>I am actively seeking <strong>internship or entry-level opportunities</strong> where I can gain industry experience and make a positive impact. Let's connect and build something amazing together!</p>
+            <div className="about-focus-block">
+              <h4>What I Focus On</h4>
+              <ul className="list-disc about-focus-list">
+                <li>Writing clean and efficient code</li>
+                <li>Building real-world, practical projects</li>
+                <li>Creating smooth and responsive user experiences</li>
+                <li>Applying AI/ML techniques to meaningful use cases</li>
+              </ul>
+            </div>
+
+            <div className="about-approach-block">
+              <h4>My Approach</h4>
+              <p>
+                I do not just learn concepts - I build, experiment, and improve every day.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -161,31 +143,44 @@ function About() {
           </div>
         </div>
 
-        {/* Other Activities */}
-        <div className="activities-section">
-          <h2 className="section-title">Other Activities</h2>
-          <div className="activities-grid">
-            {/* GDSC Role */}
-            <div className="gdsc-card card">
-              <div className="gdsc-header">
-                <div className="gdsc-logo">
-                  <FaGoogle />
+        {/* Achievements */}
+        <div className="about-achievements-section">
+          <h2 className="section-title">Achievements</h2>
+          <div className="about-achievements-grid">
+            <div className="about-achievement-card card">
+              <div className="about-achievement-header">
+                <div className="about-achievement-icon">
+                  <FaTrophy />
+                </div>
+                <div>
+                  <h3>ByteXL Hackathon Winner</h3>
+                  <p>Java Full Stack Development Hackathon</p>
+                </div>
+                <span className="about-achievement-year">2025</span>
+              </div>
+              <ul className="list-disc about-achievement-list">
+                <li>Secured first place among 100+ participants with a complete full-stack solution.</li>
+                <li>Demonstrated strong implementation skills in Spring Boot, React.js, and MySQL.</li>
+                <li>Delivered a production-ready project under strict hackathon timelines.</li>
+              </ul>
+            </div>
+
+            <div className="about-achievement-card card">
+              <div className="about-achievement-header">
+                <div className="about-achievement-icon">
+                  <FaCode />
                 </div>
                 <div>
                   <h3>Web Development Lead</h3>
-                  <p className="gdsc-org">Google Developer Student Club - GMRIT</p>
+                  <p>Google Developer Student Club - GMRIT</p>
                 </div>
+                <span className="about-achievement-year">2025 - 2026</span>
               </div>
-              <p className="gdsc-description">
-                As the <strong>Web Development Lead</strong> at GDSC GMRIT, I lead workshops, mentor students in web technologies, and help build solutions for local businesses and the community. GDSC GMRIT was established in July 2021 and has proudly stood <strong>1st among 275 campuses across India</strong>, featured in the Official Android Developers Blog.
-              </p>
-              <div className="gdsc-highlights">
-                <span className="gdsc-tag">🚀 Leading web dev workshops & sessions</span>
-                <span className="gdsc-tag">👥 Peer-to-peer learning environment</span>
-                <span className="gdsc-tag">💡 Building community solutions</span>
-                <span className="gdsc-tag">🏆 Top 1 GDSC Campus in India</span>
-              </div>
-              <p className="gdsc-period">2025 - 2026</p>
+              <ul className="list-disc about-achievement-list">
+                <li>Led web development workshops and mentored peers in modern frontend and backend tools.</li>
+                <li>Contributed to collaborative projects focused on practical community use-cases.</li>
+                <li>Helped foster a high-impact learning culture through team-driven technical sessions.</li>
+              </ul>
             </div>
           </div>
         </div>

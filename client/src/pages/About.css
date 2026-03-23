@@ -1,5 +1,5 @@
 .about {
-  padding-top: 10px;
+  padding-top: 0;
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
@@ -7,6 +7,92 @@
 
 .about-intro {
   margin-bottom: 60px;
+}
+
+.about-spotlight {
+  background: linear-gradient(140deg, rgba(0, 212, 255, 0.08), rgba(124, 58, 237, 0.08));
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.about-spotlight-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.about-logo-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.16), rgba(124, 58, 237, 0.22));
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.35);
+  animation: aboutPulse 2.2s ease-in-out infinite;
+}
+
+.about-animated-logo {
+  font-size: 1.5rem;
+  color: var(--accent);
+  animation: aboutSpin 6s linear infinite;
+}
+
+.about-spotlight-title {
+  color: var(--text-primary);
+  font-size: 1.35rem;
+  margin-bottom: 4px;
+}
+
+.about-spotlight-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.about-spotlight-text {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.about-focus-block,
+.about-approach-block {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.2);
+  border: 1px solid var(--border);
+}
+
+.about-focus-block h4,
+.about-approach-block h4 {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.about-focus-list {
+  margin-bottom: 0;
+}
+
+.about-approach-block p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+@keyframes aboutSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes aboutPulse {
+  0%,
+  100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.35); }
+  50% { box-shadow: 0 0 0 10px rgba(0, 212, 255, 0); }
 }
 
 .about-text {
@@ -45,6 +131,10 @@
   line-height: 1.7;
 }
 
+.card-note {
+  margin-top: 10px;
+}
+
 /* Status Card */
 .status-card {
   background: rgba(0, 212, 255, 0.05);
@@ -64,6 +154,11 @@
   color: var(--text-secondary);
   line-height: 1.6;
   font-size: 0.95rem;
+}
+
+.opportunity-card {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1));
 }
 
 /* GDSC Card */
@@ -144,6 +239,71 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+}
+
+/* About Achievements Section */
+.about-achievements-section {
+  margin-bottom: 50px;
+}
+
+.about-achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.about-achievement-card {
+  padding: 24px;
+  border-left: 3px solid #ffc107;
+  background: rgba(255, 193, 7, 0.04);
+}
+
+.about-achievement-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.about-achievement-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+  color: #0f0f1a;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.about-achievement-header h3 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.about-achievement-header p {
+  color: #ffc107;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.about-achievement-year {
+  margin-left: auto;
+  padding: 5px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.12), rgba(255, 152, 0, 0.12));
+  color: #ffc107;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.about-achievement-list {
+  margin-bottom: 0;
 }
 
 /* Skills */
@@ -350,7 +510,7 @@
 
 @media (max-width: 968px) {
   .about {
-    padding-top: 8px;
+    padding-top: 0;
   }
   
   .about-details {
@@ -368,11 +528,15 @@
   .connect-card {
     padding: 20px 30px;
   }
+
+  .about-spotlight {
+    padding: 24px;
+  }
 }
 
 @media (max-width: 768px) {
   .about {
-    padding-top: 8px;
+    padding-top: 0;
   }
   
   .section-title {
@@ -388,10 +552,27 @@
   .about-intro {
     margin-bottom: 40px;
   }
+
+  .about-spotlight {
+    padding: 20px;
+  }
+
+  .about-spotlight-header {
+    align-items: flex-start;
+  }
+
+  .about-spotlight-title {
+    font-size: 1.15rem;
+  }
+
+  .about-spotlight-subtitle {
+    font-size: 0.9rem;
+  }
   
   .skills-section,
   .education-section,
-  .activities-section {
+  .activities-section,
+  .about-achievements-section {
     margin-bottom: 40px;
   }
   
@@ -463,6 +644,14 @@
   .gdsc-description {
     font-size: 0.9rem;
   }
+
+  .about-achievement-card {
+    padding: 20px;
+  }
+
+  .about-achievement-year {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -480,7 +669,7 @@
 
 @media (max-width: 480px) {
   .about {
-    padding-top: 6px;
+    padding-top: 0;
   }
   
   .section-title {
@@ -489,6 +678,40 @@
   
   .about-text {
     font-size: 1rem;
+  }
+
+  .about-spotlight {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .about-spotlight-header {
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .about-logo-wrap {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+
+  .about-animated-logo {
+    font-size: 1.25rem;
+  }
+
+  .about-spotlight-title {
+    font-size: 1rem;
+  }
+
+  .about-spotlight-text {
+    font-size: 0.9rem;
+  }
+
+  .about-focus-block,
+  .about-approach-block {
+    margin-top: 14px;
+    padding: 12px;
   }
   
   .about-card h3 {
@@ -556,6 +779,24 @@
     font-size: 0.85rem;
   }
 
+  .about-achievement-card {
+    padding: 16px;
+  }
+
+  .about-achievement-header h3 {
+    font-size: 1rem;
+  }
+
+  .about-achievement-header p {
+    font-size: 0.85rem;
+  }
+
+  .about-achievement-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
   .gdsc-highlights {
     justify-content: center;
     gap: 6px;
@@ -605,7 +846,7 @@
 
 @media (max-width: 360px) {
   .about {
-    padding-top: 6px;
+    padding-top: 0;
   }
   
   .about-card,
@@ -626,5 +867,9 @@
   
   .connect-icon {
     font-size: 1.6rem;
+  }
+
+  .about-spotlight {
+    padding: 12px;
   }
 }

@@ -1,5 +1,259 @@
 .experience {
-  padding-top: 10px;
+  padding-top: 0;
+}
+
+/* Journey Flow */
+.journey-flow-section {
+  margin-bottom: 60px;
+}
+
+.journey-flow-intro {
+  color: var(--text-secondary);
+  max-width: 760px;
+  margin-bottom: 26px;
+  line-height: 1.7;
+}
+
+.journey-flow-quote {
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent);
+  padding-left: 14px;
+}
+
+.journey-flow-track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 8px 0;
+}
+
+.journey-flow-track::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  --line-shift: -50%;
+  transform: translateX(var(--line-shift));
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.25), rgba(124, 58, 237, 0.55), rgba(16, 185, 129, 0.35));
+  background-size: 100% 220%;
+  animation: flowLineMove 4s ease-in-out infinite;
+}
+
+.journey-flow-track.flow-spin-a::before,
+.journey-flow-track.flow-spin-b::before {
+  animation: flowLineMove 4s ease-in-out infinite, flowLineRotate 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1;
+}
+
+.journey-flow-track::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #00d4ff 55%, rgba(0, 212, 255, 0) 75%);
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.85);
+  animation: flowPulseDown 3.2s linear infinite;
+  z-index: 3;
+}
+
+.journey-node {
+  position: relative;
+  width: calc(50% - 22px);
+  animation: nodeReveal 0.7s ease both;
+  animation-delay: calc(var(--node-index) * 120ms);
+}
+
+.journey-node.left {
+  align-self: flex-start;
+}
+
+.journey-node.right {
+  align-self: flex-end;
+}
+
+.journey-node-dot {
+  position: absolute;
+  top: 28px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 0 6px rgba(0, 212, 255, 0.14);
+  z-index: 2;
+}
+
+.journey-node.left .journey-node-dot {
+  right: -29px;
+}
+
+.journey-node.right .journey-node-dot {
+  left: -29px;
+}
+
+.journey-node-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  padding: 20px;
+  background: linear-gradient(145deg, rgba(0, 212, 255, 0.06), rgba(124, 58, 237, 0.06));
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-node-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.journey-node-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.45);
+  box-shadow: 0 12px 34px rgba(0, 212, 255, 0.14);
+}
+
+.journey-node-card.active {
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.35), 0 16px 40px rgba(0, 212, 255, 0.18);
+}
+
+.journey-node-card.active::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 212, 255, 0.7);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.journey-node-card.active.journey-pulse-a::after,
+.journey-node-card.active.journey-pulse-b::after {
+  animation: cardRoundPulse 0.7s ease-out 1;
+}
+
+.journey-node-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.journey-phase {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.12);
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.journey-year {
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.journey-title {
+  color: var(--text-primary);
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+}
+
+.journey-summary {
+  color: var(--text-secondary);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.journey-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.journey-tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.45);
+  color: var(--text-primary);
+  font-size: 0.78rem;
+}
+
+@keyframes flowLineMove {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes flowLineRotate {
+  from { transform: translateX(var(--line-shift)) rotate(0deg); }
+  to { transform: translateX(var(--line-shift)) rotate(360deg); }
+}
+
+@keyframes flowPulseDown {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 12px);
+    opacity: 0;
+  }
+}
+
+@keyframes cardRoundPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(12);
+    opacity: 0;
+  }
+}
+
+@keyframes nodeReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .exp-cards {
@@ -14,7 +268,6 @@
 }
 
 .exp-card.current-exp {
-  border-left: 3px solid var(--accent);
   background: rgba(0, 212, 255, 0.03);
 }
 
@@ -131,93 +384,6 @@
   font-size: 1.1rem;
 }
 
-/* Achievements Section */
-.achievements-section {
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
-
-.achievement-card {
-  padding: 28px;
-  border-left: 3px solid #ffc107;
-  background: rgba(255, 193, 7, 0.03);
-}
-
-.achievement-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.achievement-icon {
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(135deg, #ffc107, #ff9800);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.achievement-icon svg {
-  font-size: 1.3rem;
-  color: #0f0f1a;
-}
-
-.achievement-title {
-  font-size: 1.2rem;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.achievement-event {
-  color: #ffc107;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-.achievement-year {
-  margin-left: auto;
-  padding: 6px 14px;
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(255, 152, 0, 0.15));
-  color: #ffc107;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border: 1px solid rgba(255, 193, 7, 0.3);
-}
-
-.achievement-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.achievement-list li {
-  position: relative;
-  padding-left: 24px;
-  margin-bottom: 10px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.achievement-list li::before {
-  content: '★';
-  color: #ffc107;
-  position: absolute;
-  left: 0;
-  font-size: 0.8rem;
-}
-
 /* Projects */
 .projects-section {
   margin-top: 30px;
@@ -267,15 +433,34 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 1200px) {
-  .achievements-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 968px) {
   .experience {
-    padding-top: 8px;
+    padding-top: 0;
+  }
+
+  .journey-flow-track::before {
+    left: 18px;
+    --line-shift: -50%;
+    transform: translateX(var(--line-shift));
+  }
+
+  .journey-flow-track::after {
+    left: 18px;
+    transform: translateX(-50%);
+  }
+
+  .journey-node,
+  .journey-node.left,
+  .journey-node.right {
+    width: calc(100% - 36px);
+    align-self: flex-end;
+  }
+
+  .journey-node-dot,
+  .journey-node.left .journey-node-dot,
+  .journey-node.right .journey-node-dot {
+    left: -25px;
+    right: auto;
   }
   
   .exp-card {
@@ -285,22 +470,37 @@
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
-  .achievement-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  
-  .achievement-year {
-    margin-left: 0;
-    align-self: flex-start;
-  }
 }
 
 @media (max-width: 768px) {
   .experience {
-    padding-top: 8px;
+    padding-top: 0;
+  }
+
+  .journey-flow-section {
+    margin-bottom: 44px;
+  }
+
+  .journey-flow-intro {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .journey-flow-quote {
+    font-size: 0.93rem;
+    padding-left: 10px;
+  }
+
+  .journey-node-card {
+    padding: 16px;
+  }
+
+  .journey-title {
+    font-size: 1rem;
+  }
+
+  .journey-summary {
+    font-size: 0.88rem;
   }
   
   .exp-card {
@@ -344,20 +544,6 @@
     font-size: 0.85rem;
   }
   
-  .achievement-card {
-    padding: 20px;
-  }
-  
-  .achievement-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  
-  .achievement-year {
-    margin-left: 0;
-  }
-  
   .exp-project-links {
     gap: 8px;
   }
@@ -386,7 +572,33 @@
 
 @media (max-width: 480px) {
   .experience {
-    padding-top: 6px;
+    padding-top: 0;
+  }
+
+  .journey-flow-track {
+    gap: 16px;
+  }
+
+  .journey-node,
+  .journey-node.left,
+  .journey-node.right {
+    width: calc(100% - 30px);
+  }
+
+  .journey-node-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .journey-node-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .journey-tech-tag {
+    font-size: 0.72rem;
+    padding: 4px 8px;
   }
   
   .section-title {
@@ -422,44 +634,14 @@
   .project-name {
     font-size: 1rem;
   }
-  
-  .achievement-card {
-    padding: 16px;
-  }
-  
-  .achievement-title {
-    font-size: 1.1rem;
-  }
-  
-  .achievement-event {
-    font-size: 0.85rem;
-  }
-  
-  .achievement-year {
-    padding: 5px 10px;
-    font-size: 0.8rem;
-  }
-  
-  .achievement-icon {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .achievement-icon svg {
-    font-size: 1.1rem;
-  }
 }
 
 @media (max-width: 360px) {
   .experience {
-    padding-top: 6px;
+    padding-top: 0;
   }
   
   .exp-card {
-    padding: 12px;
-  }
-  
-  .achievement-card {
     padding: 12px;
   }
   

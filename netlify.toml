@@ -15,6 +15,12 @@
   command = "npm install && npm run build"
 
 [[redirects]]
+  from = "https://www.malipeddisekhar.me/*"
+  to = "https://malipeddisekhar.me/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

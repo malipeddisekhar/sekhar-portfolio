@@ -8,9 +8,38 @@ const contactRoutes = require('./routes/contact');
 
 const app = express();
 
+const defaultAllowedOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  'https://malipeddisekhar.me',
+  'https://www.malipeddisekhar.me'
+];
+
+const envOrigins = [
+  process.env.CLIENT_URL,
+  process.env.CLIENT_URLS
+]
+  .filter(Boolean)
+  .flatMap((value) => value.split(',').map((origin) => origin.trim()).filter(Boolean));
+
+const allowedOrigins = new Set([...defaultAllowedOrigins, ...envOrigins]);
+
 // Middleware
 app.use(cors({
-  origin: process.env.CLIENT_URL || '*',
+  origin: (origin, callback) => {
+    // Allow server-to-server, curl, Postman (no Origin header)
+    if (!origin) {
+      callback(null, true);
+      return;
+    }
+
+    if (allowedOrigins.has(origin)) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error(`CORS blocked for origin: ${origin}`));
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

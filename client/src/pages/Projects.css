@@ -1,5 +1,5 @@
 .projects {
-  padding-top: 10px;
+  padding-top: 0;
 }
 
 .projects-header {
@@ -238,7 +238,7 @@
 
 @media (max-width: 968px) {
   .projects {
-    padding-top: 8px;
+    padding-top: 0;
   }
   
   .projects-grid {
@@ -253,7 +253,7 @@
 
 @media (max-width: 768px) {
   .projects {
-    padding-top: 8px;
+    padding-top: 0;
   }
   
   .projects-grid {
@@ -350,7 +350,7 @@
 
 @media (max-width: 480px) {
   .projects {
-    padding-top: 6px;
+    padding-top: 0;
   }
   
   .section-title {
@@ -420,7 +420,7 @@
 
 @media (max-width: 360px) {
   .projects {
-    padding-top: 6px;
+    padding-top: 0;
   }
 
   .project-content {

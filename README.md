@@ -144,7 +144,14 @@ sekhar-portfolio/
    ```env
    MONGODB_URI=your_mongodb_connection_string
    PORT=5000
+   EMAIL_USER=your_gmail_address
+   EMAIL_PASS=your_gmail_app_password
+   EMAIL_TO=malipeddisekhar63@gmail.com
    ```
+
+   Notes:
+   - Use a Gmail App Password for `EMAIL_PASS`.
+   - `EMAIL_TO` is optional; if omitted, messages are sent to `EMAIL_USER`.
 
 4. **Run the application**
    ```bash
