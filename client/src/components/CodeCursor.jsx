@@ -5,6 +5,10 @@ const DROP_SYMBOLS = [
   '{ }',
   '[ ]',
   '( )',
+  '<div>',
+  '</div>',
+  '<api/>',
+  '</sql>',
   '=>',
   '===',
   '!==',
@@ -18,11 +22,19 @@ const DROP_SYMBOLS = [
   'API',
   'JSON',
   'React',
+  'Spring',
   'Node',
   'SQL',
   'Git',
   'AI',
-  'ML'
+  'ML',
+  'NN',
+  'DL',
+  'SDLC',
+  'UI',
+  'UX',
+  'JWT',
+  'REST'
 ];
 
 function CodeCursor() {
@@ -37,7 +49,7 @@ function CodeCursor() {
   const [drops, setDrops] = useState([]);
   const [touchPings, setTouchPings] = useState([]);
 
-  const emitBurst = (x, y, burstSize = 14) => {
+  const emitBurst = (x, y, burstSize = 20) => {
     const now = Date.now();
     const burst = Array.from({ length: burstSize }, (_, index) => {
       const angle = (Math.PI * 2 * index) / burstSize;
@@ -143,7 +155,10 @@ function CodeCursor() {
 
       if (!wasDraggingRef.current) return;
       wasDraggingRef.current = false;
-      emitBurst(event.clientX, event.clientY, 14);
+      emitBurst(event.clientX, event.clientY, 20);
+      window.setTimeout(() => {
+        emitBurst(event.clientX, event.clientY, 10);
+      }, 90);
     };
 
     frameRef.current = window.requestAnimationFrame(render);
@@ -169,7 +184,7 @@ function CodeCursor() {
       if (!touch) return;
 
       emitTouchPing(touch.clientX, touch.clientY);
-      emitBurst(touch.clientX, touch.clientY, 10);
+      emitBurst(touch.clientX, touch.clientY, 16);
     };
 
     window.addEventListener('touchstart', handleTouchStart, { passive: true });

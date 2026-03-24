@@ -3,6 +3,8 @@ import { FaGithub, FaExternalLinkAlt, FaCode, FaFire, FaChartLine } from 'react-
 import config from '../config';
 import './Experience.css';
 
+const LEETCODE_USERNAME = 'MALIPEDDI_SEKHAR';
+
 function Experience() {
   const [leetcodeStats, setLeetcodeStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -65,42 +67,29 @@ function Experience() {
 
   useEffect(() => {
     const fetchLeetCodeStats = async () => {
-      // Try multiple APIs sequentially
-      const apis = [
-        `${config.API_URL}/api/leetcode/MALIPEDD_SEKHAR`,
-        'https://alfa-leetcode-api.onrender.com/userProfile/MALIPEDD_SEKHAR',
-        'https://leetcode-api-faisalshohag.vercel.app/MALIPEDD_SEKHAR'
-      ];
+      try {
+        const response = await fetch(`${config.API_URL}/api/leetcode/${encodeURIComponent(LEETCODE_USERNAME)}`, {
+          method: 'GET',
+          headers: { Accept: 'application/json' }
+        });
 
-      for (const apiUrl of apis) {
-        try {
-          const response = await fetch(apiUrl, { 
-            method: 'GET',
-            headers: { 'Accept': 'application/json' }
+        if (response.ok) {
+          const data = await response.json();
+          setLeetcodeStats({
+            totalSolved: data.totalSolved || data.solvedProblem || fallbackStats.totalSolved,
+            easySolved: data.easySolved || fallbackStats.easySolved,
+            mediumSolved: data.mediumSolved || fallbackStats.mediumSolved,
+            hardSolved: data.hardSolved || fallbackStats.hardSolved,
+            ranking: data.ranking || 0
           });
-          
-          if (response.ok) {
-            const data = await response.json();
-            if (data && (data.totalSolved || data.solvedProblem)) {
-              setLeetcodeStats({
-                totalSolved: data.totalSolved || data.solvedProblem || 0,
-                easySolved: data.easySolved || 0,
-                mediumSolved: data.mediumSolved || 0,
-                hardSolved: data.hardSolved || 0,
-                ranking: data.ranking || 0
-              });
-              setLoading(false);
-              return;
-            }
-          }
-        } catch (error) {
-          // Silent fallback: move to next API without noisy console logs
+        } else {
+          setLeetcodeStats(fallbackStats);
         }
+      } catch (error) {
+        setLeetcodeStats(fallbackStats);
+      } finally {
+        setLoading(false);
       }
-
-      // If all APIs fail, use fallback stats
-      setLeetcodeStats(fallbackStats);
-      setLoading(false);
     };
 
     fetchLeetCodeStats();
@@ -279,9 +268,9 @@ function Experience() {
                       <FaCode />
                     </div>
                     <div>
-                      <h3>MALIPEDD_SEKHAR</h3>
+                      <h3>{LEETCODE_USERNAME}</h3>
                       <a 
-                        href="https://leetcode.com/u/MALIPEDD_SEKHAR/" 
+                        href={`https://leetcode.com/u/${LEETCODE_USERNAME}/`} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="leetcode-link"
@@ -336,7 +325,7 @@ function Experience() {
               </>
             ) : (
               <div className="leetcode-error">
-                <p>Unable to load LeetCode stats. <a href="https://leetcode.com/u/MALIPEDD_SEKHAR/" target="_blank" rel="noopener noreferrer">Visit Profile</a></p>
+                <p>Unable to load LeetCode stats. <a href={`https://leetcode.com/u/${LEETCODE_USERNAME}/`} target="_blank" rel="noopener noreferrer">Visit Profile</a></p>
               </div>
             )}
           </div>

@@ -70,13 +70,13 @@ function About() {
                 <FaCode className="about-animated-logo" />
               </div>
               <div>
-                <h3 className="about-spotlight-title">Full Stack Developer</h3>
-                <p className="about-spotlight-subtitle">CSE (AI & ML) student building clean, scalable, and user-friendly digital products.</p>
+                <h3 className="about-spotlight-title">Full Stack & AIML Developer</h3>
+                <p className="about-spotlight-subtitle">CSE (AI & ML) student building clean, scalable web products and practical intelligent solutions.</p>
               </div>
             </div>
 
             <p className="about-spotlight-text">
-              I am <span className="highlight">Malipeddi Sekhar</span>, a passionate full stack developer who loves building clean, scalable, and user-friendly web applications from scratch.
+              I am <span className="highlight">Malipeddi Sekhar</span>, a passionate <span className="highlight">Full Stack and AIML Developer</span> who loves building clean, scalable, and user-friendly digital products from scratch.
             </p>
             <p className="about-spotlight-text">
               I work with <span className="highlight">Java</span>, <span className="highlight">Spring Boot</span>, and <span className="highlight">React</span> to create complete end-to-end solutions, from backend logic to modern, interactive UI.

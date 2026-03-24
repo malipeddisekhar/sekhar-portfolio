@@ -1,10 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaGithub, FaEnvelope, FaLinkedin, FaDownload } from 'react-icons/fa';
 import { SiJavascript, SiReact, SiNodedotjs, SiMongodb, SiSpringboot, SiMysql, SiPython, SiTailwindcss, SiGit } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import './Home.css';
 
+const ROTATING_TITLES = [
+  'Full Stack Java Developer',
+  'Spring Boot Backend Developer',
+  'React.js Frontend Developer',
+  'MySQL and REST API Developer',
+  'AIML and Neural Network Enthusiast',
+  'Deep Learning Focused Developer',
+  'SDLC and System Design Learner',
+  'Research Paper Contributor'
+];
+
 function Home() {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [typedRole, setTypedRole] = useState(ROTATING_TITLES[0]?.slice(0, 1) || '');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    if (!ROTATING_TITLES.length) return undefined;
+
+    const safeIndex = roleIndex % ROTATING_TITLES.length;
+    const currentRole = ROTATING_TITLES[safeIndex] || '';
+
+    if (!currentRole) {
+      setTypedRole('');
+      return undefined;
+    }
+
+    const timer = window.setTimeout(() => {
+      if (!isDeleting && typedRole === currentRole) {
+        setIsDeleting(true);
+        return;
+      }
+
+      if (isDeleting && typedRole.length === 0) {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % ROTATING_TITLES.length);
+        return;
+      }
+
+      const nextText = isDeleting
+        ? currentRole.slice(0, typedRole.length - 1)
+        : currentRole.slice(0, typedRole.length + 1);
+
+      setTypedRole(nextText);
+    }, typedRole === currentRole && !isDeleting ? 1300 : isDeleting ? 40 : 85);
+
+    return () => window.clearTimeout(timer);
+  }, [typedRole, isDeleting, roleIndex]);
+
   const techStack = [
     { icon: <FaJava />, name: 'Java' },
     { icon: <SiJavascript />, name: 'JavaScript' },
@@ -27,9 +75,15 @@ function Home() {
             <h1 className="home-title">
               Hi, I'm <span className="highlight gradient-text">Malipeddi Sekhar</span>
             </h1>
-            <p className="home-subtitle">
-              <span className="highlight">Java Full Stack Developer</span> | Spring Boot | React.js | MySQL
+            <p className="home-subtitle home-core-stack">
+              <span className="core-stack-label">Core Stack:</span>
+              <span className="core-stack-value">Java | Spring Boot | React.js | MySQL | REST APIs | AIML</span>
             </p>
+            <div className="home-typing-role" aria-live="polite">
+              <span className="typing-prefix">I build as a </span>
+              <span className="typing-text">{typedRole}</span>
+              <span className="typing-caret" aria-hidden="true">|</span>
+            </div>
             <blockquote className="home-quote" aria-label="Technical Quote">
               <span className="quote-mark">"</span>
               Great software is built when clean code meets real user needs.
