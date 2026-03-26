@@ -33,6 +33,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+  flex: 1;
 }
 
 .brand-text {
@@ -50,6 +52,10 @@
   display: inline-flex;
   align-items: center;
   min-width: 16ch;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .brand-name-caret {
@@ -119,6 +125,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .theme-toggle {
@@ -190,7 +197,7 @@
   }
 
   .brand-text-animated {
-    min-width: 14ch;
+    min-width: 11ch;
   }
   
   .nav-link {
@@ -223,6 +230,6 @@
   }
 
   .brand-text-animated {
-    min-width: 13ch;
+    min-width: 8ch;
   }
 }

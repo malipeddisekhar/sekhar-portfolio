@@ -54,7 +54,7 @@ function Navbar({ darkMode, toggleTheme }) {
           </span>
         </Link>
 
-        <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
+        <div id="primary-navigation" className={`navbar-links ${isOpen ? 'active' : ''}`}>
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -71,10 +71,16 @@ function Navbar({ darkMode, toggleTheme }) {
         </div>
 
         <div className="navbar-actions">
-          <button className="theme-toggle" onClick={toggleTheme}>
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
             {darkMode ? <FiSun /> : <FiMoon />}
           </button>
-          <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="menu-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            aria-controls="primary-navigation"
+          >
             {isOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>

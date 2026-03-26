@@ -73,11 +73,19 @@ function UIMotionManager() {
     document.body.classList.add('js-enhanced');
 
     const targets = Array.from(document.querySelectorAll('.section, .section-title, .card, .journey-node'));
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     targets.forEach((element, index) => {
       element.classList.add('reveal-item');
       element.style.setProperty('--reveal-delay', `${(index % 8) * 70}ms`);
     });
+
+    if (prefersReducedMotion || typeof window.IntersectionObserver === 'undefined') {
+      targets.forEach((element) => element.classList.add('in-view'));
+      return () => {
+        // No observer to clean up in fallback mode.
+      };
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -93,9 +101,27 @@ function UIMotionManager() {
       }
     );
 
+    // Make sure above-the-fold content is visible immediately on first paint.
+    window.requestAnimationFrame(() => {
+      const viewportBottom = window.innerHeight * 0.92;
+      targets.forEach((element) => {
+        if (element.classList.contains('in-view')) return;
+        const rect = element.getBoundingClientRect();
+        if (rect.top < viewportBottom && rect.bottom > 0) {
+          element.classList.add('in-view');
+        }
+      });
+    });
+
+    // Failsafe: avoid hidden sections if an observer callback is skipped on mobile.
+    const revealFailsafe = window.setTimeout(() => {
+      targets.forEach((element) => element.classList.add('in-view'));
+    }, 1600);
+
     targets.forEach((element) => observer.observe(element));
 
     return () => {
+      window.clearTimeout(revealFailsafe);
       observer.disconnect();
     };
   }, [location.pathname]);
