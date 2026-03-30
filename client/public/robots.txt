@@ -1,4 +1,16 @@
+# Allow all search engines
 User-agent: *
 Allow: /
 
+# Allow specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
 Sitemap: https://malipeddisekhar.me/sitemap.xml
+
+# Crawl delay (requests per second)
+Crawl-delay: 1

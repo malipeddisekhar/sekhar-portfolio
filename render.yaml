@@ -32,6 +32,8 @@ services:
     rootDir: client
     buildCommand: npm install && npm run build
     staticPublishPath: build
+    autoDeploy: true
+    branch: main
     pullRequestPreviewsEnabled: true
     envVars:
       - key: NODE_VERSION
