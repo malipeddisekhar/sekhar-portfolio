@@ -18,9 +18,27 @@ services:
         sync: false
       - key: CLIENT_URL
         sync: false
+      - key: CLIENT_URLS
+        sync: false
       - key: EMAIL_USER
         sync: false
       - key: EMAIL_PASS
         sync: false
       - key: EMAIL_TO
         sync: false
+
+  - type: static
+    name: sekhar-portfolio-web
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    pullRequestPreviewsEnabled: true
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: REACT_APP_API_URL
+        value: https://sekhar-portfolio-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

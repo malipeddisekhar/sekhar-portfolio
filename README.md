@@ -67,7 +67,7 @@ A modern, responsive portfolio website built with the **MERN Stack** (MongoDB, E
 </td>
 <td>
 
-- Netlify (Frontend)
+- Render Static Site (Frontend)
 - Render (Backend)
 - MongoDB Atlas
 
@@ -182,7 +182,7 @@ sekhar-portfolio/
 
 | Service | Purpose | URL |
 |---------|---------|-----|
-| **Netlify** | Frontend Hosting | [Live Site](https://malipeddisekhar.me/) |
+| **Render (Static Site)** | Frontend Hosting | [Live Site](https://malipeddisekhar.me/) |
 | **Render** | Backend API | [API Server](https://sekhar-portfolio-api.onrender.com) |
 | **MongoDB Atlas** | Database | Cloud Database |
 
