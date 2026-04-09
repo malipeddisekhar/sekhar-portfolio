@@ -1,12 +1,12 @@
-# 🚀 Sekhar Portfolio
+# 🚀 Sekhar Portfolio  
 
-A modern, responsive portfolio website built with the **MERN Stack** (MongoDB, Express.js, React, Node.js).
+A modern, responsive **Full Stack Web Application** showcasing my projects, skills, and real-world development experience.  
 
 <br/>
 
 <div align="center">
 
-### ✨ **[▶ Click Here to View Live Portfolio](https://malipeddisekhar.me/)** ✨
+### ✨ **[▶ Visit My Portfolio – malipeddisekhar.me](https://malipeddisekhar.me/)** ✨  
 
 </div>
 
